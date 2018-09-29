@@ -1,5 +1,6 @@
 package logicadenegocios;
 
+import logicadenegocios.Pasajero;
 import java.util.*;
 
 public class Viaje{
@@ -17,7 +18,7 @@ public class Viaje{
   private float kilomInicial;
   private float kilomFinal;
   private Chofer chofer;
-  private ArrayList<Persona> personas;
+  private ArrayList<Pasajero> pasajeros=new ArrayList<Pasajero>();
   
   public Viaje(String pDestino,String pHoraInicio, float pKilometrajeInicial){
     cantViajes++;

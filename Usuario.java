@@ -17,7 +17,28 @@ public class Usuario {
   protected String contrasenia;
   
   public Usuario(String pNombre, String pDepartamento, String pNombreUsuario,
-          int pTelefono, String pContrasenia){
-      
+    int pTelefono, String pContrasenia){
+    nombre=pNombre;
+    departamento=pDepartamento;
+    nombreUsuario=pNombreUsuario;
+    telefono=pTelefono;
+    contrasenia=pContrasenia;        
+  }
+  
+  public String getNombre(){
+    return nombre;
+  }
+  public String getDepartamento(){
+    return departamento;
+  }
+  public String getNombreUsuario(){
+    return nombreUsuario;
+  }
+  public String getContrasenia(){
+    return contrasenia;
+  }
+  
+  public int getTelefono(){
+    return telefono;
   }
 }

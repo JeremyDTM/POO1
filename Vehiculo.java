@@ -24,7 +24,6 @@ public class Vehiculo {
     capacidad = pCapacidad;
     sede = pSede;
     estado = pEstado;
-    regitroDeServicios = new ArrayList<Servicio>();
   }
 
   public void realizarViaje(int kilometros){

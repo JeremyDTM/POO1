@@ -25,4 +25,8 @@ public class Secretaria extends Usuario{
       (Pasajero.getPasajeros()).add(pasajero);
     }
   }
+  
+  public void SolicitarViaje(){
+      
+  }
 }

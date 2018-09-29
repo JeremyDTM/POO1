@@ -22,5 +22,9 @@ public class Pasajero extends Persona{
   public static ArrayList<Pasajero> getPasajeros(){
     return pasajeros;
   }
+  
+  public static int getCantPasajeros(){
+    return cantPasajeros;    
+  }
     
 }
