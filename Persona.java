@@ -4,11 +4,11 @@ package logicadenegocios;
 
 public class Persona{
     // instance variables - replace the example below with your own
-  private String nombre;
-  private String cedula;
-  private String correo;
-  private String telefono;
-  private Direccion direccion;
+  protected String nombre;
+  protected String cedula;
+  protected String correo;
+  protected String telefono;
+  protected Direccion direccion;
 
     /**
      * Constructor for objects of class Persona
