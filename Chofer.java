@@ -5,7 +5,7 @@ import java.util.*;
 public class Chofer extends Persona{
   private ArrayList<Licencia> licenciasChofer= new ArrayList<Licencia>();
   
-  public Chofer(String pNombre, String pCedula, String pCorreo,String pTelefono){
+  public Chofer(String pNombre, int pCedula, String pCorreo,int pTelefono){
     super(pNombre,pCedula,pCorreo,pTelefono);
   }
 

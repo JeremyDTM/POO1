@@ -5,15 +5,20 @@ package logicadenegocios;
 public class Persona{
     // instance variables - replace the example below with your own
   protected String nombre;
-  protected String cedula;
+  protected int cedula;
   protected String correo;
-  protected String telefono;
+  protected int telefono;
   protected Direccion direccion;
 
     /**
-     * Constructor for objects of class Persona
+     * Constructor for objects of class Persona 
+     * @param pNombre
+     * @param pCedula
+     * @param pCorreo
+     * @param pTelefono
      */
-  public Persona(String pNombre, String pCedula, String pCorreo,String pTelefono){
+  
+  public Persona(String pNombre, int pCedula, String pCorreo,int pTelefono){
     nombre = pNombre;
     cedula = pCedula;
     correo = pCorreo;
@@ -24,7 +29,7 @@ public class Persona{
     return nombre;
   }
   
-  public String getCedula(){
+  public int getCedula(){
     return cedula;
   }
   
@@ -32,7 +37,7 @@ public class Persona{
     return correo;
   }
   
-  public String getTelefono(){
+  public int getTelefono(){
     return telefono;  
   }
   

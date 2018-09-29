@@ -14,14 +14,14 @@ public class Servicio {
   private String tipo;
   private Empresa empresaAsignada;
 
-  public Servicio(String pIdent,int pMonto,String pDetalle,Empresa empresa,String pTipo){
+  public Servicio(String pIdent,int pMonto,String pDetalle,Empresa pEmpresa,String pTipo){
     cantidad++;
     ident = "ID-SM"+cantidad;
     setFechaIn();
     monto = pMonto;
     tipo=pTipo;
     detalle = pDetalle;
-    empresaAsignada = empresa;
+    empresaAsignada = pEmpresa;
   }
 
   public void setFechaIn(){
