@@ -8,8 +8,12 @@ public class Viaje{
   private Date fechaSolicitud;
   private String identificador;
   private String inicio;
+  private String fechaInicio;
+  private String fechaFinalizacion;
   private String fin;
   private String destino;
+  private String estado;
+  private String puntoSalida;
   private float kilomInicial;
   private float kilomFinal;
   private Chofer chofer;
@@ -34,6 +38,10 @@ public class Viaje{
   public void setFechaSolicitud(){
     Calendar calendario = Calendar.getInstance();
     fechaSolicitud = calendario.getTime();
+  }
+  
+  public String getFechaInicio(){
+    return fechaInicio;
   }
   
   public float getKilomFinal(){
