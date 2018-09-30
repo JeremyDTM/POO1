@@ -1,7 +1,6 @@
 package logicadenegocios;
 
 import java.util.*;
-import logicadenegocios.Servicio;
 
 public class Vehiculo {
   private String placa;

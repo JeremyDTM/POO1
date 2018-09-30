@@ -11,6 +11,8 @@ public class Licencia{
   String tipo;
     /**
      * Constructor for objects of class Licencia
+     * @param pNumero
+     * @param pTipo
      */
   public Licencia(String pNumero, String pTipo){
     setFechaEmision();

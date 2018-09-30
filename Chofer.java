@@ -2,11 +2,19 @@ package logicadenegocios;
 
 import java.util.*;
 
+
 public class Chofer extends Persona{
   private static int cantChoferes;
-  private static ArrayList<Chofer> choferes= new ArrayList<Chofer>();
-  private ArrayList<Licencia> licenciasChofer= new ArrayList<Licencia>();
+  private static final ArrayList<Chofer> Choferes= new ArrayList<Chofer>();
+  private ArrayList<Licencia> LicenciasChofer= new ArrayList<>();
   
+    /**
+    *Constructor for objects of class Chofer
+    *@param pNombre
+    *@param pCedula
+    * @param pCorreo
+    * @param pTelefono
+    */
   public Chofer(String pNombre, int pCedula, String pCorreo,int pTelefono){
     super(pNombre,pCedula,pCorreo,pTelefono);
     cantChoferes++;
@@ -14,15 +22,15 @@ public class Chofer extends Persona{
 
   public void agregarLicencia(String pNumero, String pTipo){
     Licencia licencia = new Licencia(pNumero,pTipo);
-    licenciasChofer.add(licencia);
+    LicenciasChofer.add(licencia);
   }
   
   public ArrayList<Licencia> getLicenciasChofer(){
-    return licenciasChofer;
+    return LicenciasChofer;
   }
   
   public static ArrayList<Chofer> getChoferes(){
-    return choferes;
+    return Choferes;
   }
   
   public static int getCantChoferes(){

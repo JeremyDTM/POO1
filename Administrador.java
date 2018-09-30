@@ -26,6 +26,9 @@ public class Administrador extends Usuario{
     if(Encontrado==false){
         Chofer chofer= new Chofer(pNombre,pCedula,pCorreo,pTelefono);
         Licencia licencia=new Licencia(pNumero,pTipo);
+        //mostrar mensaje registro correcto en la interfaz
+    }else{
+        //mostrar mensaje registro inválido en la interfaz
     }
   }
 }
