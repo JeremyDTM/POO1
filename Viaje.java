@@ -20,6 +20,7 @@ public class Viaje{
   private float kilomInicial=0;
   private float kilomFinal=0;
   private Chofer chofer;
+  private Vehiculo vehiculo;
   private ArrayList<Pasajero> pasajeros=new ArrayList<Pasajero>();
   
   public Viaje(String pDestino,String pHoraInicio,String pHoraFinal, float pKilometrajeInicial,String pEstado,String pPuntoSalida,String pFechaInicio,String pFechaFinalizacion){
@@ -113,6 +114,9 @@ public class Viaje{
     return puntoSalida;
   }
   
+  private void asignarVehiculo(Vehiculo pVehiculo){
+    vehiculo=pVehiculo;
+  }
   
   public String informacionViajeSolicitud(){
     String msg="El identificador es "+getIdentificador()+"\n"+"la fecha de solicitud del viaje es "+getFechaSolicitud()+"\n"+

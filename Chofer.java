@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Chofer extends Persona{
   private static int cantChoferes;
-  private static final ArrayList<Chofer> Choferes= new ArrayList<Chofer>();
+  private static  ArrayList<Chofer> Choferes= new ArrayList<Chofer>();
   private ArrayList<Licencia> LicenciasChofer= new ArrayList<>();
   
     /**
@@ -31,6 +31,10 @@ public class Chofer extends Persona{
   
   public static ArrayList<Chofer> getChoferes(){
     return Choferes;
+  }
+  
+  public static void setChoferes(Chofer chofer){
+    Choferes.add(chofer);
   }
   
   public static int getCantChoferes(){

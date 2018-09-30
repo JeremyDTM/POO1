@@ -79,4 +79,12 @@ public class Vehiculo {
   public ArrayList<Servicio> getRegitroDeServicios(){
     return regitroDeServicios;
   }
+  
+  public static ArrayList<Vehiculo> getVehiculos(){
+    return vehiculos;
+  }
+  
+  public static void setVehiculo(Vehiculo vehiculo){
+    vehiculos.add(vehiculo);
+  }
 }

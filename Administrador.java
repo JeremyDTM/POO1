@@ -25,10 +25,30 @@ public class Administrador extends Usuario{
     }
     if(Encontrado==false){
         Chofer chofer= new Chofer(pNombre,pCedula,pCorreo,pTelefono);
-        Licencia licencia=new Licencia(pNumero,pTipo);
+        chofer.agregarLicencia(pNumero,pTipo);
+        Chofer.setChoferes(chofer);
         //mostrar mensaje registro correcto en la interfaz
     }else{
         //mostrar mensaje registro inválido en la interfaz
     }
   }
+
+  public void  registrarVehiculo(String pPlaca,String pAnio,String pColor,String pMarca,int pCapacidad,String pSede,int pVin){
+   boolean Encontrado=false;
+    int i=0;
+    while(i<Vehiculo.getVehiculos().size()&&Encontrado!=true){
+      if((Vehiculo.getVehiculos().get(i).getVin())==pVin){
+        Encontrado=true;
+      }
+      i++;
+    }
+    if(Encontrado==false){
+        Vehiculo vehiculo=new Vehiculo(pPlaca,pAnio,pColor,pMarca,pCapacidad,pSede,"En servicio",pVin);
+        Vehiculo.setVehiculo(vehiculo);
+        //mostrar mensaje registro correcto en la interfaz
+    }else{
+        //mostrar mensaje registro inválido en la interfaz
+    }
+  }
+
 }
