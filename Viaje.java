@@ -39,6 +39,10 @@ public class Viaje{
     return destino;
   }
   
+  public void setEstado(String pEstado){
+    estado=pEstado;
+  }
+  
   public String getEstado(){
     return estado;
   }

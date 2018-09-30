@@ -12,7 +12,8 @@ public class Vehiculo {
   private String sede;
   private int vin;
   private String estado;
-  private ArrayList<Servicio> regitroDeServicios;
+  private ArrayList<Servicio> regitroDeServicios=new ArrayList<Servicio>();
+  private static ArrayList<Vehiculo> vehiculos=new ArrayList<Vehiculo>();
 
   public Vehiculo(String pPlaca,String pAnio,String pColor,String pMarca,int pCapacidad,String pSede,String pEstado,int pVin){
     vin=pVin;
@@ -32,6 +33,7 @@ public class Vehiculo {
   public void realizarMantenimiento(String identificacion,int monto,String detalle,Empresa empresa,String tipo){
     Servicio servicio = new Servicio(identificacion,monto,detalle,empresa,tipo);
     regitroDeServicios.add(servicio);
+
   }
 
   public void cambiarEstado(String pEstado){

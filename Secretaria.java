@@ -93,16 +93,17 @@ public class Secretaria extends Usuario{
   public void CancelarViaje(String idViaje){
     int contador=0;
     ArrayList<Viaje> viajes=Viaje.getViajes();
-   while(contador<viajes.size()){
-     if(viajes.get(contador).getIdentificador()==idViaje){
-      if("En confección"==viajes.get(contador).getEstado()){
-        viajes.get(contador).setEstado("Cancelado");
-      }else if("Aprobado"==viajes.get(contador).getEstado()){
-        viajes.get(contador).setEstado("Cancelado");
+    while(contador<viajes.size()){
+      if(viajes.get(contador).getIdentificador()==idViaje){
+        if("En confección"==viajes.get(contador).getEstado()){
+          viajes.get(contador).setEstado("Cancelado");
+        }else if("Aprobado"==viajes.get(contador).getEstado()){
+          viajes.get(contador).setEstado("Cancelado");
           //notificar por Telegram
-     }
-     //eliminar el chofer y el vehiculo
-   }
-   contador++;
+        }
+         //eliminar el chofer y el vehiculo
+      }
+      contador++;
+    }
   }
 }
