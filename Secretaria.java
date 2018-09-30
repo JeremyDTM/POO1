@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Dell
  */
 public class Secretaria extends Usuario{
-  private ArrayList<Secretaria> secretarios=new ArrayList<Secretaria>();
+  private static ArrayList<Secretaria> secretarios=new ArrayList<Secretaria>();
   private ArrayList<Viaje> viajesIngresados=new ArrayList<Viaje>();
   
   public Secretaria(String pNombre, String pDepartamento, String pNombreUsuario, int pTelefono, String pContrasenia) {
@@ -16,6 +16,14 @@ public class Secretaria extends Usuario{
   
   public ArrayList<Viaje> getViajesIngresados(){
     return viajesIngresados;
+  }
+  
+  public static ArrayList<Secretaria> getSecretaria(){
+    return secretarios;
+  }
+  
+  public static void setSecretaria(Secretaria secretaria){
+    secretarios.add(secretaria);
   }
   
   public void registrarPasajero(String pNombre, int pCedula, String pCorreo, int pTelefono){

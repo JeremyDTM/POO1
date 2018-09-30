@@ -34,10 +34,10 @@ public class Administrador extends Usuario{
   }
 
   public void  registrarVehiculo(String pPlaca,String pAnio,String pColor,String pMarca,int pCapacidad,String pSede,int pVin){
-   boolean Encontrado=false;
+    boolean Encontrado=false;
     int i=0;
     while(i<Vehiculo.getVehiculos().size()&&Encontrado!=true){
-      if((Vehiculo.getVehiculos().get(i).getVin())==pVin){
+      if((Vehiculo.getVehiculos().get(i).getVin())==pVin||(Vehiculo.getVehiculos().get(i).getPlaca())==pPlaca){
         Encontrado=true;
       }
       i++;
@@ -50,5 +50,24 @@ public class Administrador extends Usuario{
         //mostrar mensaje registro inválido en la interfaz
     }
   }
+  
+  public void RegistrarSecretaria(String pNombre, String pDepartamento, String pNombreUsuario, int pTelefono){
+    boolean Encontrado=false;
+    int i=0;
+    while(i<Secretaria.getSecretaria().size()&&Encontrado!=true){
+      if((Secretaria.getSecretaria().get(i).getNombreUsuario())==pNombreUsuario){
+        Encontrado=true;
+      }
+      i++;
+    }
+    if(Encontrado==false){
+        Secretaria secretaria=new Secretaria(pNombre,pDepartamento,pNombreUsuario,pTelefono,"");
+        Secretaria.setSecretaria(secretaria);
+        //mostrar mensaje registro correcto en la interfaz
+    }else{
+        //mostrar mensaje registro inválido en la interfaz
+    }    
+  }
+  
 
 }
