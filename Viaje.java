@@ -125,4 +125,8 @@ public class Viaje{
     +"\n"+"El destino es "+getDestino();
     return msg;
   }
+
+  public Chofer getChofer() {
+    return chofer;
+  }
 }
