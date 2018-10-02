@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
+import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import javax.swing.Timer;
 import org.jfree.chart.ChartFactory;
@@ -95,14 +96,120 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      String Departamento1="Primer lugar: ",Departamento2="Seg",Departamento3="3",Departamento4="4",Departamento5="5";
+      String Departamento1="Primer lugar: ",Departamento2="Segundo lugar: ",Departamento3="Tercer Lugar: ",Departamento4="Cuarto Lugar: ",Departamento5="Quinto Lugar: ";
+      ArrayList<Usuario> usuarios=new ArrayList<>();
+      ArrayList<String> departamentos=new ArrayList<>();
+      ArrayList<String> top5=new ArrayList<>();
+      
+      int cantViajes1=0,cantViajes2=0,cantViajes3=0,cantViajes4=0,cantViajes5=0;
+      int contador=0;
+      while (contador<Administrador.getAdministrador().size()){
+        usuarios.add(Administrador.getAdministrador().get(contador));
+        contador++;
+      }
+      contador=0;
+      while (contador<Secretaria.getSecretaria().size()){
+        usuarios.add(Secretaria.getSecretaria().get(contador));
+        contador++;
+      }
+      contador=0;
+      while (contador<usuarios.size()){     
+        String departamento=usuarios.get(contador).getDepartamento();
+        departamentos.add(departamento);
+        usuarios.remove(usuarios.get(contador));
+        int contador2=1;
+        while (contador<usuarios.size()){
+          if(departamento==usuarios.get(contador).getDepartamento()){
+            contador2++;
+            usuarios.remove(usuarios.get(contador));
+          }else{
+            contador++;
+          }
+        }
+        departamentos.add(String.valueOf(contador2));
+        contador=0;
+      }
+      
+      int mayorValor=0;
+      int contador2=0;
+      contador=0;
+      while(contador2<departamentos.size()/2&&contador<6){
+        mayorValor=0;
+        ArrayList<String> departamentos2=new ArrayList<String>();
+        while(contador2<departamentos.size()){
+          departamentos2.add(departamentos.get(contador2));
+          contador2++;
+        }
+        contador2=0;
+        String departamento = "";
+        while(contador2<departamentos2.size()){
+          if(parseInt(departamentos2.get(contador2+1))>mayorValor){
+              mayorValor=parseInt(departamentos2.get(contador2+1));
+              departamento=departamentos2.get(contador2);
+          }
+          departamentos2.remove(departamentos2.get(contador2));
+          departamentos2.remove(departamentos2.get(contador2));
+        }
+        top5.add(departamento);
+        top5.add(String.valueOf(mayorValor));
+        departamentos.remove(departamento);
+        departamentos.remove(String.valueOf(mayorValor));
+        contador++;
+        
+      }
+      
+      switch (top5.size()) {
+              case 2:
+                  Departamento1+=top5.get(0);
+                  cantViajes1=parseInt(top5.get(1));
+                  break;
+              case 4:
+                  Departamento1+=top5.get(0);
+                  Departamento2+=top5.get(2);
+                  cantViajes1=parseInt(top5.get(1));
+                  cantViajes2=parseInt(top5.get(3));
+                  break;
+              case 6:
+                  Departamento1+=top5.get(0);
+                  Departamento2+=top5.get(2);
+                  Departamento3+=top5.get(4);
+                  cantViajes1=parseInt(top5.get(1));
+                  cantViajes2=parseInt(top5.get(3));
+                  cantViajes3=parseInt(top5.get(5));
+                  break;
+              case 8:
+                  Departamento1+=top5.get(0);
+                  Departamento2+=top5.get(2);
+                  Departamento3+=top5.get(4);
+                  Departamento4+=top5.get(6);
+                  cantViajes1=parseInt(top5.get(1));
+                  cantViajes2=parseInt(top5.get(3));
+                  cantViajes3=parseInt(top5.get(5));
+                  cantViajes4=parseInt(top5.get(7));
+                  
+                  break;
+              case 10:
+                  Departamento1+=top5.get(0);
+                  Departamento2+=top5.get(2);
+                  Departamento3+=top5.get(4);
+                  Departamento4+=top5.get(6);
+                  Departamento5+=top5.get(8);
+                  cantViajes1=parseInt(top5.get(1));
+                  cantViajes2=parseInt(top5.get(3));
+                  cantViajes3=parseInt(top5.get(5));
+                  cantViajes4=parseInt(top5.get(7));
+                  cantViajes5=parseInt(top5.get(9));
+                  break;
+              default:
+                  break;
+          }
       
       DefaultPieDataset data = new DefaultPieDataset();
-      data.setValue(Departamento1, new Double(17.5));
-      data.setValue(Departamento2, new Double(17.5));
-      data.setValue(Departamento3, new Double(17.5));
-      data.setValue(Departamento4, new Double(17.5));
-      data.setValue(Departamento5, new Double(17.5));
+      data.setValue(Departamento1, new Double(cantViajes1));
+      data.setValue(Departamento2, new Double(cantViajes2));
+      data.setValue(Departamento3, new Double(cantViajes3));
+      data.setValue(Departamento4, new Double(cantViajes4));
+      data.setValue(Departamento5, new Double(cantViajes5));
       JFreeChart chart;
       chart = ChartFactory.createPieChart3D("Pie Chart",data,true,true,true);
       PiePlot3D plot=(PiePlot3D)chart.getPlot();
@@ -127,43 +234,46 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-      if(!Viaje.getViajes().isEmpty()){
-      } else {
-      }
       DefaultCategoryDataset dataset= new DefaultCategoryDataset();
       ArrayList<Chofer> choferes=Chofer.getChoferes();
       ArrayList<Chofer> choferesConViajes=new ArrayList<Chofer>();
       ArrayList<Chofer> top5=new ArrayList<Chofer>();
-      Chofer chofer1=new Chofer( "Juan", 305280031,"jdtm23@gmail.com",83317040);
-      chofer1.setCantViajes();
-      choferes.add(chofer1);
       String Chofer1="Primer lugar: ",Chofer2="Segundo lugar: ",Chofer3="Tercer lugar: ",Chofer4="Cuarto lugar: ",Chofer5="Quinto lugar: ";
       int cantViajes1=0,cantViajes2=0,cantViajes3=0,cantViajes4=0,cantViajes5=0;
       if(choferes.size()!=0){
         int contador=0;
         while(choferes.size()>contador){
-          System.out.println("hola");
           if(choferes.get(contador).getCantViajes()!=0){
+            
             choferesConViajes.add(choferes.get(contador));
           }
           contador++;
         }
-        contador=0;
+        contador=1;
         int mayorValor=0;
         Chofer chofer = null;
-        while(contador<choferesConViajes.size()){
-          
-          int contador2=0;
+        int contador2=0;
+        while(contador2<choferesConViajes.size()&&contador<6){
+          System.out.println(choferesConViajes.size());
+          mayorValor=0;
+          ArrayList<Chofer> choferesConViajes2=new ArrayList<Chofer>();
           while(contador2<choferesConViajes.size()){
-            if(choferesConViajes.get(contador2).getCantViajes()>mayorValor){
-                mayorValor=choferesConViajes.get(contador2).getCantViajes();
-                chofer=choferesConViajes.get(contador2);
-            }
-            top5.add(chofer);
-            choferesConViajes.remove(chofer);
+            choferesConViajes2.add(choferesConViajes.get(contador2));
             contador2++;
           }
+          contador2=0;
+          while(contador2<choferesConViajes2.size()){
+            if(choferesConViajes2.get(contador2).getCantViajes()>mayorValor){
+                mayorValor=choferesConViajes2.get(contador2).getCantViajes();
+                chofer=choferesConViajes2.get(contador2);
+            }
+            choferesConViajes2.remove(chofer);
+          }
+          top5.add(chofer);
+          choferesConViajes.remove(chofer);
+          contador++;
         }
+        
           switch (top5.size()) {
               case 1:
                   Chofer1+=top5.get(0).getNombre();
@@ -210,13 +320,12 @@ public class NewJFrame extends javax.swing.JFrame {
                   break;
           }
       }
-     
       dataset.setValue(cantViajes1,"cantViajes",Chofer1);
       dataset.setValue(cantViajes2,"cantViajes",Chofer2);
       dataset.setValue(cantViajes3,"cantViajes",Chofer3);
       dataset.setValue(cantViajes4,"cantViajes",Chofer4);
       dataset.setValue(cantViajes5,"cantViajes",Chofer5);
-      JFreeChart chart=ChartFactory.createBarChart3D("Choferes con más viajes", "Student name", "marks", dataset, PlotOrientation.VERTICAL, false, true, false);
+      JFreeChart chart=ChartFactory.createBarChart("Choferes con más viajes", "Choferes", "cantidad de viajes", dataset, PlotOrientation.VERTICAL, false, true, false);
       CategoryPlot plot=chart.getCategoryPlot();
       plot.setRangeGridlinePaint(Color.black);
       plot.setBackgroundPaint(Color.darkGray);

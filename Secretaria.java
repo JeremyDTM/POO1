@@ -10,9 +10,9 @@ public class Secretaria extends Usuario{
   private static ArrayList<Secretaria> secretarios=new ArrayList<Secretaria>();
   private ArrayList<Viaje> viajesIngresados=new ArrayList<Viaje>();
   
-  public Secretaria(String pNombre, String pDepartamento, String pNombreUsuario, int pTelefono, String pContrasenia) {
-      super(pNombre, pDepartamento, pNombreUsuario, pTelefono, pContrasenia);
-    }
+  public Secretaria(String pNombre, String pDepartamento, String pNombreUsuario, int pTelefono, String pContrasenia){
+    super(pNombre, pDepartamento, pNombreUsuario, pTelefono, pContrasenia);
+  }
   
   public ArrayList<Viaje> getViajesIngresados(){
     return viajesIngresados;

@@ -5,13 +5,25 @@
  */
 package logicadenegocios;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Dell
  */
-public class Administrador extends Usuario{  
+public class Administrador extends Usuario{
+  private static ArrayList<Administrador> administradores= new ArrayList<Administrador>();
+          
   public Administrador(String pNombre, String pDepartamento, String pNombreUsuario, int pTelefono, String pContrasenia) {
-    super(pNombre, pDepartamento, pNombreUsuario, pTelefono, pContrasenia);   
+    super(pNombre, pDepartamento, pNombreUsuario, pTelefono, pContrasenia);
+  }
+  
+  public static void setAdmistrador(Administrador administrador){
+    administradores.add(administrador);
+  }
+  
+  public static ArrayList<Administrador> getAdministrador(){
+    return administradores;
   }
   
   public void registrarChofer(String pNombre, int pCedula, String pCorreo,int pTelefono,String pNumero, String pTipo){
