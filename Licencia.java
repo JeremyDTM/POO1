@@ -6,17 +6,19 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Licencia{
     // instance variables - replace the example below with your own
   String numero;
-  Date fechaEmision;
-  Date fechaExpira;
+  String fechaEmision;
+  String fechaExpira;
   String tipo;
     /**
      * Constructor for objects of class Licencia
      * @param pNumero
      * @param pTipo
+     * @param pFechaEmision
+     * @param pFechaExpira
      */
-  public Licencia(String pNumero, String pTipo){
-    setFechaEmision();
-    setFechaExpira();
+  public Licencia(String pNumero, String pTipo,String pFechaEmision,String pFechaExpira){
+    setFechaEmision(pFechaEmision);
+    setFechaExpira(pFechaExpira);
     numero = pNumero;
     tipo = pTipo;
   }
@@ -29,15 +31,11 @@ public class Licencia{
      return tipo;
   }
   
-  private void setFechaEmision(){
-    Calendar calendario = Calendar.getInstance();
-    fechaEmision = calendario.getTime();
+  private void setFechaEmision(String pFechaEmision){
+    fechaEmision=pFechaEmision;
   }
   
-  private void setFechaExpira(){
-    int rand = ThreadLocalRandom.current().nextInt(1,5);
-    Calendar calendario = Calendar.getInstance();
-    calendario.add(Calendar.WEEK_OF_YEAR,rand);
-    fechaExpira = calendario.getTime();
+  private void setFechaExpira(String pFechaExpira){
+    fechaExpira=pFechaExpira;
   }
 }

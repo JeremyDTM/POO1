@@ -21,8 +21,8 @@ public class Chofer extends Persona{
     cantChoferes++;
   }
 
-  public void agregarLicencia(String pNumero, String pTipo){
-    Licencia licencia = new Licencia(pNumero,pTipo);
+  public void agregarLicencia(String pNumero, String pTipo,String pFechaEmision,String pFechaExpira){
+    Licencia licencia = new Licencia(pNumero,pTipo,pFechaEmision,pFechaExpira);
     LicenciasChofer.add(licencia);
   }
   

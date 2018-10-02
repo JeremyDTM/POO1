@@ -15,6 +15,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.Timer;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
@@ -100,7 +101,6 @@ public class NewJFrame extends javax.swing.JFrame {
       ArrayList<Usuario> usuarios=new ArrayList<>();
       ArrayList<String> departamentos=new ArrayList<>();
       ArrayList<String> top5=new ArrayList<>();
-      
       int cantViajes1=0,cantViajes2=0,cantViajes3=0,cantViajes4=0,cantViajes5=0;
       int contador=0;
       while (contador<Administrador.getAdministrador().size()){

@@ -6,6 +6,10 @@
 package logicadenegocios;
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.lang.Math;
+import java.lang.reflect.Array;
+import java.util.stream.IntStream;
 
 /**
  *
@@ -26,7 +30,7 @@ public class Administrador extends Usuario{
     return administradores;
   }
   
-  public void registrarChofer(String pNombre, int pCedula, String pCorreo,int pTelefono,String pNumero, String pTipo){
+  public void registrarChofer(String pNombre, int pCedula, String pCorreo,int pTelefono,String pNumero, String pTipo,String pFechaEmision,String pFechaExpira){
     boolean Encontrado=false;
     int i=0;
     while(i<Chofer.getCantChoferes()&&Encontrado!=true){
@@ -37,7 +41,7 @@ public class Administrador extends Usuario{
     }
     if(Encontrado==false){
         Chofer chofer= new Chofer(pNombre,pCedula,pCorreo,pTelefono);
-        chofer.agregarLicencia(pNumero,pTipo);
+        chofer.agregarLicencia(pNumero,pTipo, pFechaEmision, pFechaExpira);
         Chofer.setChoferes(chofer);
         //mostrar mensaje registro correcto en la interfaz
     }else{
@@ -63,7 +67,7 @@ public class Administrador extends Usuario{
     }
   }
   
-  public void RegistrarSecretaria(String pNombre, String pDepartamento, String pNombreUsuario, int pTelefono){
+  public void registrarSecretaria(String pNombre, String pDepartamento, String pNombreUsuario, int pTelefono){
     boolean Encontrado=false;
     int i=0;
     while(i<Secretaria.getSecretaria().size()&&Encontrado!=true){
@@ -73,7 +77,39 @@ public class Administrador extends Usuario{
       i++;
     }
     if(Encontrado==false){
-        Secretaria secretaria=new Secretaria(pNombre,pDepartamento,pNombreUsuario,pTelefono,"");
+        Random r = new Random();
+        
+        int number= (int)(r.nextInt(9 - 0) + 0);
+        char[] especiales= new char[]{'!','@','#','?','@','^','~'};
+        int seleccion=(int)(r.nextInt(6 - 0) + 0);
+        char caracterEspecial=especiales[seleccion];
+        int rnd = new Random().nextInt(especiales.length);
+        int posicionNumber=(int)(r.nextInt(12 - 1) + 1);
+        int posicionNumber2=posicionNumber;
+        while(posicionNumber2==posicionNumber){
+          posicionNumber2=(int)(r.nextInt(12 - 1) + 1);
+        }
+        String Contrasenia="";
+        int number2= (int)(r.nextInt(12 - 8) + 8);
+        int contador=1;
+        while(number2>=contador){
+          if(posicionNumber==contador){
+            Contrasenia+=String.valueOf(number);
+          }else if(posicionNumber2==contador){
+              Contrasenia+=String.valueOf(caracterEspecial);
+          }else{
+            if (contador%2==0){
+              char y = (char)(r.nextInt('z' - 'a') + 'a');
+              Contrasenia+=String.valueOf(y);
+            }else{
+              char l = (char)(r.nextInt('Z' - 'A') + 'A');
+              Contrasenia+=String.valueOf(l);
+            }
+          }
+          contador++;
+        }
+        
+        Secretaria secretaria=new Secretaria(pNombre,pDepartamento,pNombreUsuario,pTelefono,Contrasenia);
         Secretaria.setSecretaria(secretaria);
         //mostrar mensaje registro correcto en la interfaz
     }else{
