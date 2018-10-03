@@ -1,10 +1,8 @@
 
-
 package logicadenegocios;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -69,7 +67,7 @@ public class Json {
        //advertencia
     }
   }
-  public void leerJsonUsuarios() throws FileNotFoundException,IOException,ParseException{
+  public void leerJsonUsuarios(){
     JSONParser parser= new JSONParser();
     try{
       JSONArray arregloJson = (JSONArray) parser.parse(new FileReader("C:\\Users\\Carlos Vega\\Desktop\\Progra\\Usuarios.json"));
@@ -78,7 +76,7 @@ public class Json {
         Usuario usuario= new Usuario(elemento.get("nombre").toString(),elemento.get("departamento").toString(),
         elemento.get("nombreUsuario").toString(),Integer.parseInt(elemento.get("telefono").toString()),
         elemento.get("contraseña").toString());
-        Usuario.setUsuario(usuario);
+        //Usuario.setUsuario(usuario);
       }
     }catch(FileNotFoundException e){
        //advertencia
