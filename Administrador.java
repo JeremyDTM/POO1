@@ -33,14 +33,14 @@ public class Administrador extends Usuario{
   public void registrarChofer(String pNombre, int pCedula, String pCorreo,int pTelefono,String pNumero, String pTipo,String pFechaEmision,String pFechaExpira){
     boolean Encontrado=false;
     int i=0;
-    while(i<Chofer.getCantChoferes()&&Encontrado!=true){
+    while(i<Usuario.getChoferes().size()&&Encontrado!=true){
       if((Usuario.getChoferes().get(i).getCedula())==pCedula){
         Encontrado=true;
       }
       i++;
     }
     if(Encontrado==false){
-        Chofer chofer= new Chofer(pNombre,pCedula,pCorreo,pTelefono);
+        Chofer chofer= new Chofer(pNombre,pCedula,pCorreo,pTelefono,pNumero, pTipo,pFechaEmision,pFechaExpira);
         chofer.agregarLicencia(pNumero,pTipo, pFechaEmision, pFechaExpira);
         Usuario.setChoferes(chofer);
         //mostrar mensaje registro correcto en la interfaz

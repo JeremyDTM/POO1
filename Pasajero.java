@@ -14,10 +14,12 @@ import java.util.ArrayList;
 public class Pasajero extends Persona{
   private static int cantPasajeros;
   
+  
   public Pasajero(String pNombre, int pCedula, String pCorreo,int pTelefono){
     super(pNombre, pCedula, pCorreo, pTelefono);
     cantPasajeros++;
   }
+  
   
   public static int getCantPasajeros(){
     return cantPasajeros;    

@@ -80,5 +80,12 @@ public class Vehiculo {
     return regitroDeServicios;
   }
   
-
+   public static ArrayList<Chofer> getChoferes(){
+    return Choferes;
+  }
+  
+  public static void setChoferes(Chofer chofer){
+    Choferes.add(chofer);
+  }
+  
 }

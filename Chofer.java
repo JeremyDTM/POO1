@@ -15,8 +15,9 @@ public class Chofer extends Persona{
     * @param pCorreo
     * @param pTelefono
     */
-  public Chofer(String pNombre, int pCedula, String pCorreo,int pTelefono){
+  public Chofer(String pNombre, int pCedula, String pCorreo,int pTelefono, String pNumero, String pTipo,String pFechaEmision,String pFechaExpira){
     super(pNombre,pCedula,pCorreo,pTelefono);
+    agregarLicencia(pNumero,pTipo,pFechaEmision,pFechaExpira);
     cantChoferes++;
   }
 
@@ -29,6 +30,7 @@ public class Chofer extends Persona{
     return LicenciasChofer;
   }
   
+     
   public static int getCantChoferes(){
     return cantChoferes;    
   }
