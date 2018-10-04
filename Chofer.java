@@ -6,7 +6,6 @@ import java.util.*;
 public class Chofer extends Persona{
   private static int cantChoferes;
   private int cantViajes=0;
-  private static  ArrayList<Chofer> Choferes= new ArrayList<Chofer>();
   private ArrayList<Licencia> LicenciasChofer= new ArrayList<>();
   
     /**
@@ -28,14 +27,6 @@ public class Chofer extends Persona{
   
   public ArrayList<Licencia> getLicenciasChofer(){
     return LicenciasChofer;
-  }
-  
-  public static ArrayList<Chofer> getChoferes(){
-    return Choferes;
-  }
-  
-  public static void setChoferes(Chofer chofer){
-    Choferes.add(chofer);
   }
   
   public static int getCantChoferes(){

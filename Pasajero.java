@@ -13,23 +13,11 @@ import java.util.ArrayList;
  */
 public class Pasajero extends Persona{
   private static int cantPasajeros;
-  private static ArrayList<Pasajero> pasajeros=new ArrayList<Pasajero>();
   
   public Pasajero(String pNombre, int pCedula, String pCorreo,int pTelefono){
     super(pNombre, pCedula, pCorreo, pTelefono);
     cantPasajeros++;
   }
-  
-  
-  public static ArrayList<Pasajero> getPasajeros(){
-    return pasajeros;
-  }
-  
-  public static void setPasajeros(Pasajero pasajero){
-    pasajeros.add(pasajero);
-  }
-  
-  
   
   public static int getCantPasajeros(){
     return cantPasajeros;    

@@ -13,7 +13,7 @@ public class Vehiculo {
   private int vin;
   private String estado;
   private ArrayList<Servicio> regitroDeServicios=new ArrayList<Servicio>();
-  private static ArrayList<Vehiculo> vehiculos=new ArrayList<Vehiculo>();
+  
 
   public Vehiculo(String pPlaca,String pAnio,String pColor,String pMarca,int pCapacidad,String pSede,String pEstado,int pVin){
     vin=pVin;
@@ -80,11 +80,5 @@ public class Vehiculo {
     return regitroDeServicios;
   }
   
-  public static ArrayList<Vehiculo> getVehiculos(){
-    return vehiculos;
-  }
-  
-  public static void setVehiculo(Vehiculo vehiculo){
-    vehiculos.add(vehiculo);
-  }
+
 }

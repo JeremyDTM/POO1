@@ -34,7 +34,7 @@ public class Administrador extends Usuario{
     boolean Encontrado=false;
     int i=0;
     while(i<Chofer.getCantChoferes()&&Encontrado!=true){
-      if((Chofer.getChoferes().get(i).getCedula())==pCedula){
+      if((Usuario.getChoferes().get(i).getCedula())==pCedula){
         Encontrado=true;
       }
       i++;
@@ -42,7 +42,7 @@ public class Administrador extends Usuario{
     if(Encontrado==false){
         Chofer chofer= new Chofer(pNombre,pCedula,pCorreo,pTelefono);
         chofer.agregarLicencia(pNumero,pTipo, pFechaEmision, pFechaExpira);
-        Chofer.setChoferes(chofer);
+        Usuario.setChoferes(chofer);
         //mostrar mensaje registro correcto en la interfaz
     }else{
         //mostrar mensaje registro inválido en la interfaz
@@ -52,15 +52,15 @@ public class Administrador extends Usuario{
   public void  registrarVehiculo(String pPlaca,String pAnio,String pColor,String pMarca,int pCapacidad,String pSede,int pVin){
     boolean Encontrado=false;
     int i=0;
-    while(i<Vehiculo.getVehiculos().size()&&Encontrado!=true){
-      if((Vehiculo.getVehiculos().get(i).getVin())==pVin||(Vehiculo.getVehiculos().get(i).getPlaca())==pPlaca){
+    while(i<Usuario.getVehiculos().size()&&Encontrado!=true){
+      if((Usuario.getVehiculos().get(i).getVin())==pVin||(Usuario.getVehiculos().get(i).getPlaca())==pPlaca){
         Encontrado=true;
       }
       i++;
     }
     if(Encontrado==false){
         Vehiculo vehiculo=new Vehiculo(pPlaca,pAnio,pColor,pMarca,pCapacidad,pSede,"En servicio",pVin);
-        Vehiculo.setVehiculo(vehiculo);
+        Usuario.setVehiculo(vehiculo);
         //mostrar mensaje registro correcto en la interfaz
     }else{
         //mostrar mensaje registro inválido en la interfaz
@@ -70,8 +70,8 @@ public class Administrador extends Usuario{
   public void registrarSecretaria(String pNombre, String pDepartamento, String pNombreUsuario, int pTelefono){
     boolean Encontrado=false;
     int i=0;
-    while(i<Secretaria.getSecretaria().size()&&Encontrado!=true){
-      if((Secretaria.getSecretaria().get(i).getNombreUsuario())==pNombreUsuario){
+    while(i<Usuario.getSecretaria().size()&&Encontrado!=true){
+      if((Usuario.getSecretaria().get(i).getNombreUsuario())==pNombreUsuario){
         Encontrado=true;
       }
       i++;
@@ -110,7 +110,7 @@ public class Administrador extends Usuario{
         }
         
         Secretaria secretaria=new Secretaria(pNombre,pDepartamento,pNombreUsuario,pTelefono,Contrasenia);
-        Secretaria.setSecretaria(secretaria);
+        Usuario.setSecretaria(secretaria);
         //mostrar mensaje registro correcto en la interfaz
     }else{
         //mostrar mensaje registro inválido en la interfaz

@@ -7,7 +7,6 @@ import java.util.*;
 public class Viaje{
   
   private static int cantViajes;
-  private static ArrayList<Viaje> viajes=new ArrayList<Viaje>();
   private Date fechaSolicitud;
   private String identificador="";
   private String horaInicio="";
@@ -60,17 +59,7 @@ public class Viaje{
     return pasajeros;
   }
   
-  public static ArrayList<Viaje> getViajes(){
-    return viajes;
-  }
-  
-    /**
-     *
-     * @param viaje
-     */
-    public static void setViajes(Viaje viaje){
-     viajes.add(viaje);
-  }
+
   
   public float getKilomInicial(){
     return kilomInicial;

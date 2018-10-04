@@ -7,7 +7,6 @@ import java.util.ArrayList;
  * @author Dell
  */
 public class Secretaria extends Usuario{
-  private static ArrayList<Secretaria> secretarios=new ArrayList<Secretaria>();
   private ArrayList<Viaje> viajesIngresados=new ArrayList<Viaje>();
   
   public Secretaria(String pNombre, String pDepartamento, String pNombreUsuario, int pTelefono, String pContrasenia){
@@ -18,26 +17,20 @@ public class Secretaria extends Usuario{
     return viajesIngresados;
   }
   
-  public static ArrayList<Secretaria> getSecretaria(){
-    return secretarios;
-  }
   
-  public static void setSecretaria(Secretaria secretaria){
-    secretarios.add(secretaria);
-  }
   
   public void registrarPasajero(String pNombre, int pCedula, String pCorreo, int pTelefono){
     boolean Encontrado=false;
     int i=0;
     while(i<Pasajero.getCantPasajeros()&&Encontrado!=true){
-      if((Pasajero.getPasajeros().get(i).getCedula())==pCedula){
+      if((Usuario.getPasajeros().get(i).getCedula())==pCedula){
         Encontrado=true;
       }
       i++;
     }
     if(Encontrado==false){
       Pasajero pasajero= new Pasajero(pNombre,pCedula,pCorreo,pTelefono);
-      Pasajero.setPasajeros(pasajero);
+      Usuario.setPasajeros(pasajero);
       //mostrar mensaje de pasajero registrado en la interfaz
     }else{
         //mostrar mensaje de pasajero inválido en la interfaz
@@ -54,7 +47,7 @@ public class Secretaria extends Usuario{
       i++;
     }
     viaje.setFechaSolicitud();
-    Viaje.setViajes(viaje);
+    Usuario.setViajes(viaje);
     viaje.informacionViajeSolicitud();
     //Almacenar en archivo de Viajes
   }
@@ -100,7 +93,7 @@ public class Secretaria extends Usuario{
   
   public void CancelarViaje(String idViaje){
     int contador=0;
-    ArrayList<Viaje> viajes=Viaje.getViajes();
+    ArrayList<Viaje> viajes=Usuario.getViajes();
     while(contador<viajes.size()){
       if(viajes.get(contador).getIdentificador()==idViaje){
         if("En confección"==viajes.get(contador).getEstado()){

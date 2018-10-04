@@ -235,7 +235,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
       DefaultCategoryDataset dataset= new DefaultCategoryDataset();
-      ArrayList<Chofer> choferes=Chofer.getChoferes();
+      ArrayList<Chofer> choferes=Usuario.getChoferes();
       ArrayList<Chofer> choferesConViajes=new ArrayList<Chofer>();
       ArrayList<Chofer> top5=new ArrayList<Chofer>();
       String Chofer1="Primer lugar: ",Chofer2="Segundo lugar: ",Chofer3="Tercer lugar: ",Chofer4="Cuarto lugar: ",Chofer5="Quinto lugar: ";
