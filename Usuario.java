@@ -22,6 +22,7 @@ public class Usuario {
   private static ArrayList<Pasajero> pasajeros=new ArrayList<Pasajero>();
   private static  ArrayList<Chofer> Choferes= new ArrayList<Chofer>();
   private static ArrayList<Secretaria> secretarios=new ArrayList<Secretaria>();
+  private static ArrayList<Empresa>  empresas= new ArrayList(); 
   
   public Usuario(String pNombre, String pDepartamento, String pNombreUsuario,
     int pTelefono, String pContrasenia){
@@ -87,6 +88,14 @@ public class Usuario {
   
   public static void setSecretaria(Secretaria secretaria){
     secretarios.add(secretaria);
+  }
+  
+  public static ArrayList<Empresa> getEmpresas(){
+    return empresas;
+  }
+  
+  public static void setEmpresa(Empresa empresa){
+    empresas.add(empresa);
   }
     
   public int getTelefono(){
