@@ -5,7 +5,15 @@
  */
 package logicadenegocios;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -20,7 +28,7 @@ public class Usuario {
   private static ArrayList<Viaje> viajes=new ArrayList<Viaje>();
   private static ArrayList<Vehiculo> vehiculos=new ArrayList<Vehiculo>();
   private static ArrayList<Pasajero> pasajeros=new ArrayList<Pasajero>();
-  private static  ArrayList<Chofer> Choferes= new ArrayList<Chofer>();
+  private static  ArrayList<Chofer> choferes= new ArrayList<Chofer>();
   private static ArrayList<Secretaria> secretarios=new ArrayList<Secretaria>();
   private static ArrayList<Empresa>  empresas= new ArrayList(); 
   
@@ -63,11 +71,11 @@ public class Usuario {
   }
   
   public static ArrayList<Chofer> getChoferes(){
-    return Choferes;
+    return choferes;
   }
   
   public static void setChoferes(Chofer chofer){
-    Choferes.add(chofer);
+    choferes.add(chofer);
   }
   
     public static ArrayList<Viaje> getViajes(){
@@ -100,5 +108,87 @@ public class Usuario {
     
   public int getTelefono(){
     return telefono;
+  }
+  
+  public void escribirJsonVehiculo(){  
+    try (FileWriter file = new FileWriter("Vehiculo.json")) {
+      JSONArray company = new JSONArray();
+      for(int indice=0; indice<vehiculos.size();indice++){
+        JSONObject obj = new JSONObject();
+        obj.put("placa", vehiculos.get(indice).getPlaca());
+        obj.put("color",vehiculos.get(indice).getColor());
+        obj.put("marca", vehiculos.get(indice).getMarca());
+        obj.put("capacidad", vehiculos.get(indice).getCapacidad());
+        obj.put("sede", vehiculos.get(indice).getSede());
+        obj.put("estado", vehiculos.get(indice).getEstado());
+        obj.put("vin",vehiculos.get(indice).getVin());
+        obj.put("anio",vehiculos.get(indice).getAnio());
+        company.add(obj);
+      }
+      file.write(company.toJSONString());
+      file.flush();
+      file.close();
+    }catch(IOException e){
+      //advertencia
+    } 
+  }
+  public void escribirJsonChofer(){
+    try(FileWriter file = new FileWriter("Chofer.json")){
+      JSONArray company = new JSONArray();
+      for(int indice=0; indice<choferes.size();indice++){
+        JSONObject obj = new JSONObject();
+        obj.put("nombre",choferes.get(indice).getNombre());
+        obj.put("cedula",choferes.get(indice).getCedula());
+        obj.put("correo",choferes.get(indice).getCorreo());
+        obj.put("telefono",choferes.get(indice).getTelefono());
+        obj.put("numero", choferes.get(indice).getLicenciasChofer().get(0).getNumero());
+        obj.put("tipo", choferes.get(indice).getLicenciasChofer().get(0).getTipo());
+        obj.put("fechaEmision", choferes.get(indice).getLicenciasChofer().get(0).getFechaEmision());
+        obj.put("fechaExpira", choferes.get(indice).getLicenciasChofer().get(0).getFechaExpira());
+        company.add(obj);
+      }
+      file.write(company.toJSONString());
+      file.flush();
+      file.close();
+    }catch(IOException e){
+       //advertencia
+    }
+  }
+  public void escribirJsonPasajeros(){
+    try(FileWriter file = new FileWriter("Pasajero.json")){
+      JSONArray company = new JSONArray();
+      for(int indice=0; indice<pasajeros.size();indice++){
+        JSONObject obj = new JSONObject();
+        obj.put("nombre",pasajeros.get(indice).getNombre());
+        obj.put("cedula",pasajeros.get(indice).getCedula());
+        obj.put("correo",pasajeros.get(indice).getCorreo());
+        obj.put("telefono",pasajeros.get(indice).getTelefono());
+        company.add(obj);
+      }
+      file.write(company.toJSONString());
+      file.flush();
+      file.close();
+    }catch(IOException e){
+       //advertencia
+    }
+  }
+  public void escribirJsonUsuarios(){  
+    try (FileWriter file = new FileWriter("Usuario.json")) {
+      JSONArray company = new JSONArray();
+      for(int indice=0; indice<secretarios.size();indice++){
+        JSONObject obj = new JSONObject();
+        obj.put("nombre", secretarios.get(indice).getNombre());
+        obj.put("departamento",secretarios.get(indice).getDepartamento());
+        obj.put("nombreUsuario", secretarios.get(indice).getNombreUsuario());
+        obj.put("telefono", secretarios.get(indice).getTelefono());
+        obj.put("contraseña", secretarios.get(indice).getContrasenia());
+        company.add(obj);
+      }
+      file.write(company.toJSONString());
+      file.flush();
+      file.close();
+    }catch(IOException e){
+      //advertencia
+    } 
   }
 }
