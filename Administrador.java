@@ -45,7 +45,7 @@ public class Administrador extends Usuario{
         Usuario.setChoferes(chofer);
         //mostrar mensaje registro correcto en la interfaz
     }else{
-        //mostrar mensaje registro inválido en la interfaz
+        //mostrar mensaje registro invÃ¡lido en la interfaz
     }
   }
 
@@ -63,7 +63,7 @@ public class Administrador extends Usuario{
         Usuario.setVehiculo(vehiculo);
         //mostrar mensaje registro correcto en la interfaz
     }else{
-        //mostrar mensaje registro inválido en la interfaz
+        //mostrar mensaje registro invÃ¡lido en la interfaz
     }
   }
   
@@ -113,7 +113,7 @@ public class Administrador extends Usuario{
         Usuario.setSecretaria(secretaria);
         //mostrar mensaje registro correcto en la interfaz
     }else{
-        //mostrar mensaje registro inválido en la interfaz
+        //mostrar mensaje registro invÃ¡lido en la interfaz
     }    
   }
   

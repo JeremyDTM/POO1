@@ -33,14 +33,14 @@ public class Secretaria extends Usuario{
       Usuario.setPasajeros(pasajero);
       //mostrar mensaje de pasajero registrado en la interfaz
     }else{
-        //mostrar mensaje de pasajero inválido en la interfaz
+        //mostrar mensaje de pasajero invÃ¡lido en la interfaz
     }
   }
   
   
   
   public void SolicitarViaje(ArrayList<Pasajero> pasajeros,String pDestino,String pHoraInicio,String pHoraFinal, float pKilometrajeInicial,String pEstado,String pPuntoSalida,String pFechaInicio,String pFechaFinalizacion){
-    Viaje viaje= new Viaje(pDestino,pHoraInicio,pHoraFinal,pKilometrajeInicial,"En confección",pPuntoSalida,pFechaInicio,pFechaFinalizacion);
+    Viaje viaje= new Viaje(pDestino,pHoraInicio,pHoraFinal,pKilometrajeInicial,"En confecciÃ³n",pPuntoSalida,pFechaInicio,pFechaFinalizacion);
     int i=0;
     while(i<pasajeros.size()){
       viaje.asignarPasajero(pasajeros.get(i));
@@ -85,7 +85,7 @@ public class Secretaria extends Usuario{
       +viajeFiltrado.getFechaSolicitud()+"\n"+"el estado es "+viajeFiltrado.getEstado()+"\n"
               +"El destino es "+viajeFiltrado.getDestino()+"\n"+"La fecha de inicio es "+viajeFiltrado.getFechaInicio();
       i++;
-      //ciclo información de viajes solicitados.
+      //ciclo informaciÃ³n de viajes solicitados.
     }
   }
   
@@ -96,7 +96,7 @@ public class Secretaria extends Usuario{
     ArrayList<Viaje> viajes=Usuario.getViajes();
     while(contador<viajes.size()){
       if(viajes.get(contador).getIdentificador()==idViaje){
-        if("En confección"==viajes.get(contador).getEstado()){
+        if("En confecciÃ³n"==viajes.get(contador).getEstado()){
           viajes.get(contador).setEstado("Cancelado");
         }else if("Aprobado"==viajes.get(contador).getEstado()){
           viajes.get(contador).setEstado("Cancelado");
