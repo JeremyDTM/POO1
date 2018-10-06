@@ -111,7 +111,7 @@ public class Usuario {
   }
   
   public void escribirJsonVehiculo(){  
-    try (FileWriter file = new FileWriter("Vehiculo.json")) {
+    try (FileWriter file = new FileWriter("VehiculoDB.json")) {
       JSONArray company = new JSONArray();
       for(int indice=0; indice<vehiculos.size();indice++){
         JSONObject obj = new JSONObject();
@@ -133,7 +133,7 @@ public class Usuario {
     } 
   }
   public void escribirJsonChofer(){
-    try(FileWriter file = new FileWriter("Chofer.json")){
+    try(FileWriter file = new FileWriter("ChoferDB.json")){
       JSONArray company = new JSONArray();
       for(int indice=0; indice<choferes.size();indice++){
         JSONObject obj = new JSONObject();
@@ -155,7 +155,7 @@ public class Usuario {
     }
   }
   public void escribirJsonPasajeros(){
-    try(FileWriter file = new FileWriter("Pasajero.json")){
+    try(FileWriter file = new FileWriter("PasajeroDB.json")){
       JSONArray company = new JSONArray();
       for(int indice=0; indice<pasajeros.size();indice++){
         JSONObject obj = new JSONObject();
@@ -173,7 +173,7 @@ public class Usuario {
     }
   }
   public void escribirJsonUsuarios(){  
-    try (FileWriter file = new FileWriter("Usuario.json")) {
+    try (FileWriter file = new FileWriter("UsuarioDB.json")) {
       JSONArray company = new JSONArray();
       for(int indice=0; indice<secretarios.size();indice++){
         JSONObject obj = new JSONObject();
